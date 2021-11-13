@@ -31,7 +31,8 @@ int main(void)
 	std::cout << fade.fadify(buffer.str()) << std::endl;
 	
 
+	std::cout << fade.fadify("Fadey") << std::endl;
+
 	// for(size_t i = 0; i < 69; i++)
-		 
 
 }

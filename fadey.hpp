@@ -61,6 +61,7 @@
 		** - Reset fade (resets on call)
 		** - Vertical / Horizontal / diagonal fade
 		** - figure out more fade patterns
+		** - pass colors which to fade
 		** - set fade length
 		*/
 
