@@ -31,7 +31,9 @@ int main(void)
 	
 
 	fadey.set_auto_reset(true);
-	std::cout << fadey.fadify("Fadey") << std::endl;
+	fadey.new_seed();
+	for (size_t i = 0; i < 5; i++)
+		std::cout << fadey.fadify("Fadey is amazing") << std::endl;
 
 	// for(size_t i = 0; i < 69; i++)
 

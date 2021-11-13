@@ -162,3 +162,9 @@ void	Fadey::set_auto_reset(bool auto_reset)
 	if (auto_reset == true)
 		_idx = _reset_idx;
 }
+
+void	Fadey::new_seed()
+{
+	_idx = rand() % FADE_SIZE;
+	_reset_idx = _idx;
+}

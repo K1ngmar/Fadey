@@ -97,6 +97,8 @@
 		/* resets fade */
 		void	set_auto_reset(bool auto_reset);
 
+		void	new_seed();
+
 	}; /* end of Fadey class */
 
 //////////////////////
