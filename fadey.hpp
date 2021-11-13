@@ -30,8 +30,7 @@
 	private:
 
 		static const  fade_matrix	_fade;
-
-		size_t				_idx;
+		size_t						_idx;
 
 	//////////////////
 	// Construction //
@@ -55,7 +54,7 @@
 	//////////////////
 	private:
 
-		size_t fadify_line(size_t pos, std::string& line, std::string& to_fade);
+		size_t fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade);
 
 	//////////
 	// FADE //

@@ -59,7 +59,7 @@ fadey::~fadey()
 // Fade //
 //////////
 
-size_t fadey::fadify_line(size_t pos, std::string& line, std::string& to_fade)
+size_t fadey::fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade)
 {
 	size_t line_pos;
 
@@ -68,13 +68,10 @@ size_t fadey::fadify_line(size_t pos, std::string& line, std::string& to_fade)
 		line_pos = to_fade.length();
 	else
 		line_pos++;
-
-	size_t interval = (line_pos - pos) / FADEY_MATRIX_SIZE;
-	if (interval == 0)
-		interval = 1;
+	
 	size_t color = 0;
 	for (size_t i = pos; i < line_pos; i++) {
-		if (i % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
+		if ((i - pos) % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
 			color++;
 			line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
 		}
@@ -87,13 +84,39 @@ size_t fadey::fadify_line(size_t pos, std::string& line, std::string& to_fade)
 	return (line_pos);
 }
 
+static size_t get_interval(std::string& str)
+{
+	size_t old_pos = 0;
+	size_t line_pos = 0;
+	size_t longest_line = 0;
+
+	while (line_pos != str.length())
+	{
+		line_pos = str.find('\n', old_pos);
+		if (line_pos == std::string::npos)
+			line_pos = str.length();
+		else
+			line_pos++;
+
+		if (line_pos - old_pos > longest_line)
+			longest_line = line_pos - old_pos;
+		old_pos = line_pos;
+	}
+
+	size_t interval = longest_line / FADEY_MATRIX_SIZE;
+	if (interval == 0)
+		interval = 1;
+	return (interval);
+}
+
 std::string fadey::fadify(std::string to_fade)
 {
 	std::string faded;
 
 	size_t pos = 0;
+	size_t interval = get_interval(to_fade);
 	while (pos != to_fade.length()) {
-		pos = this->fadify_line(pos, faded, to_fade);
+		pos = this->fadify_line(pos, interval, faded, to_fade);
 	}
 
 	return (faded);
