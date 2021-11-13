@@ -61,8 +61,6 @@
 		/*
 		** IDEAS:
 		** --------------
-		** - Auto reset (reset after every line)
-		** - Reset fade (resets on call)
 		** - Vertical / Horizontal / diagonal fade
 		** - figure out more fade patterns
 		** - pass colors which to fade
@@ -96,6 +94,7 @@
 
 		/* resets fade */
 		void	set_auto_reset(bool auto_reset);
+		void	reset_fade();
 
 		void	new_seed();
 

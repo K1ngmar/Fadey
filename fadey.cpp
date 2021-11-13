@@ -160,7 +160,12 @@ void	Fadey::set_auto_reset(bool auto_reset)
 {
 	_auto_reset = auto_reset;
 	if (auto_reset == true)
-		_idx = _reset_idx;
+		this->reset_fade();
+}
+
+void	Fadey::reset_fade()
+{
+	_idx = _reset_idx;
 }
 
 void	Fadey::new_seed()
