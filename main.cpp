@@ -1,40 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*       _     _      _     _      _     _      _     _      _     _          */
+/*      (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)    (c).-.(c)         */
+/*       / ._. \      / ._. \      / ._. \      / ._. \      / ._. \          */
+/*     __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__  __\( Y )/__        */
+/*    (_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)(_.-/'-'\-._)       */
+/*       || F ||      || A ||      || D ||      || E ||      || Y ||          */
+/*     _.' `-' '._  _.' `-' '._  _.' `-' '._  _.' `-' '._  _.' `-' '._        */
+/*    (.-./`-'\.-.)(.-./`-'\.-.)(.-./`-'\.-.)(.-./`-'\.-.)(.-./`-'\.-.)       */
+/*     `-'     `-'  `-'     `-'  `-'     `-'  `-'     `-'  `-'     `-'        */
+/*                                                                            */
+/*                   Kingmar  |  https://github.com/K1ngmar                   */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include<fadey.hpp>
 #include<iostream>
+#include<fstream>
+#include <sstream>
 
 int main(void)
 {
 	srand(time(NULL));
 	fadey fade;
 
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
-	std::cout << fade.fadify("IK BEN EEN GROTE BLIJ MAN") << std::endl;
+	std::ifstream file("README.md");
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+
+	std::cout << fade.fadify(buffer.str()) << std::endl;
+	
+
+	// for(size_t i = 0; i < 69; i++)
+		 
+
 }
