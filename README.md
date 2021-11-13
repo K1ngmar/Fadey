@@ -1,6 +1,6 @@
 
 <p align="center">
-![Really cool fadey banner](https://github.com/K1ngmar/Fadey/blob/main/fadey.png)
+  <img alt="Really cool fadey banner" src="./fadey.png" />
 </p>
 
 # 🌈 Fadey
