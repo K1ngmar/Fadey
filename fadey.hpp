@@ -19,6 +19,7 @@
 
 # include <string>
 # include <random>
+# include <iostream>
 
 /////////////
 // Defines //
@@ -32,7 +33,7 @@
 /////////////////
 // Fadey class //
 /////////////////
-	class fadey
+	class Fadey
 	{
 	//////////////
 	// Typedefs //
@@ -48,6 +49,8 @@
 
 		static const  fade_matrix	_fade;
 		size_t						_idx;
+		std::ostream&				_stream;
+
 
 	//////////////////
 	// Construction //
@@ -65,8 +68,10 @@
 		** - set fade length
 		*/
 
-		fadey();
-		virtual ~fadey();
+		Fadey(std::ostream& stream = std::cout);
+		virtual ~Fadey();
+
+		friend std::ostream& operator << (Fadey& f, std::string str);
 
 	//////////////////
 	// Fade helpers //
@@ -82,6 +87,12 @@
 
 		std::string fadify(std::string to_fade);
 
-	}; /* end of fadey class */
+	}; /* end of Fadey class */
+
+//////////////////////
+// Global Fadey pog //
+//////////////////////
+
+	extern Fadey fadey;
 
 #endif

@@ -22,16 +22,15 @@
 int main(void)
 {
 	srand(time(NULL));
-	fadey fade;
 
 	std::ifstream file("README.md");
 	std::stringstream buffer;
 	buffer << file.rdbuf();
 
-	std::cout << fade.fadify(buffer.str()) << std::endl;
+	fadey << buffer.str() << std::endl;
 	
 
-	std::cout << fade.fadify("Fadey") << std::endl;
+	std::cout << fadey.fadify("Fadey") << std::endl;
 
 	// for(size_t i = 0; i < 69; i++)
 

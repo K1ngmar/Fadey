@@ -19,11 +19,17 @@
 # include <string>
 # include <iomanip>
 
+//////////////////////
+// Global Fadey pog //
+//////////////////////
+
+Fadey fadey;
+
 ////////////////////////////////
 // Do not look at this please //
 ////////////////////////////////
 
-fadey::fade_matrix const fadey::_fade = {
+Fadey::fade_matrix const Fadey::_fade = {
 	{ 52,  53,  54,  55,  56,  57 },
 	{ 88,  89,  90,  91,  92,  93 },
 	{124, 125, 126, 127, 128, 129 },
@@ -63,18 +69,25 @@ fadey::fade_matrix const fadey::_fade = {
 // Construction //
 //////////////////
 
-fadey::fadey() : _idx(rand() % FADE_SIZE)
+Fadey::Fadey(std::ostream& stream)
+	: _idx(rand() % FADE_SIZE), _stream(stream)
 {
 }
 
-fadey::~fadey()
+Fadey::~Fadey()
 {}
+
+std::ostream& operator << (Fadey& f, std::string str)
+{
+	f._stream << f.fadify(str);
+	return (f._stream);
+}
 
 //////////
 // Fade //
 //////////
 
-size_t fadey::fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade)
+size_t Fadey::fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade)
 {
 	size_t line_pos;
 
@@ -124,7 +137,7 @@ static size_t get_interval(std::string& str)
 	return (interval);
 }
 
-std::string fadey::fadify(std::string to_fade)
+std::string Fadey::fadify(std::string to_fade)
 {
 	std::string faded;
 
