@@ -133,6 +133,6 @@ std::string fadey::fadify(std::string to_fade)
 	while (pos != to_fade.length()) {
 		pos = this->fadify_line(pos, interval, faded, to_fade);
 	}
-
+	faded += COLOR_RESET;
 	return (faded);
 }

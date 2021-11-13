@@ -27,6 +27,8 @@
 	# define FADEY_MATRIX_SIZE 6
 	# define FADE_SIZE 33
 
+	# define COLOR_RESET "\033[0m"
+
 /////////////////
 // Fadey class //
 /////////////////
@@ -59,6 +61,7 @@
 		** - Reset fade (resets on call)
 		** - Vertical / Horizontal / diagonal fade
 		** - figure out more fade patterns
+		** - set fade length
 		*/
 
 		fadey();
