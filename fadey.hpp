@@ -3,6 +3,7 @@
 # define FADEY_HPP
 
 # include <string>
+# include <random>
 
 /////////////
 // Defines //
@@ -31,11 +32,20 @@
 
 		color_matrix	_matrix;
 		fade_matrix		_fade;
+		size_t			_idx;
 
 	//////////////////
 	// Construction //
 	//////////////////
 	public:
+
+		/*
+		** IDEAS:
+		** --------------
+		** - Auto reset (reset after every line)
+		** - Reset fade (resets on call)
+		** - Vertical / Horizontal fade
+		*/
 
 		fadey();
 		virtual ~fadey();
@@ -52,6 +62,20 @@
 		void	init_fade_reverse_z_axis(int color, size_t& i);
 		void	make_fade_matrix();
 		void	colors_init();
+
+	//////////////////
+	// Fade helpers //
+	//////////////////
+	private:
+
+		size_t fadify_line(size_t pos, std::string& line, std::string& to_fade);
+
+	//////////
+	// FADE //
+	//////////
+	public:
+
+		std::string fadify(std::string to_fade);
 
 	}; /* end of fadey class */
 
