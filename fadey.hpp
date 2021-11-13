@@ -10,7 +10,7 @@
 /////////////
 
 	# define FADEY_MATRIX_SIZE 6
-	# define FADE_SIZE 19
+	# define FADE_SIZE 33
 
 /////////////////
 // Fadey class //
@@ -20,9 +20,8 @@
 	//////////////
 	// Typedefs //
 	//////////////
-	private:
+	public:
 		
-		typedef int	color_matrix[FADEY_MATRIX_SIZE][FADEY_MATRIX_SIZE][FADEY_MATRIX_SIZE];
 		typedef int fade_matrix[FADE_SIZE][FADEY_MATRIX_SIZE];
 
 	//////////////////////
@@ -30,9 +29,9 @@
 	//////////////////////
 	private:
 
-		color_matrix	_matrix;
-		fade_matrix		_fade;
-		size_t			_idx;
+		static const  fade_matrix	_fade;
+
+		size_t				_idx;
 
 	//////////////////
 	// Construction //
@@ -44,25 +43,12 @@
 		** --------------
 		** - Auto reset (reset after every line)
 		** - Reset fade (resets on call)
-		** - Vertical / Horizontal fade
+		** - Vertical / Horizontal / diagonal fade
 		** - figure out more fade patterns
 		*/
 
 		fadey();
 		virtual ~fadey();
-
-	//////////
-	// init //
-	//////////
-	private:
-
-		void	put_row_in_fade(size_t& i, size_t z, size_t y);
-		void	init_fade_reverse_y_axis(int color, size_t& i);
-		void	init_fade_y_axis(int color, size_t& i);
-		void	init_fade_z_axis(int color, size_t& i);
-		void	init_fade_reverse_z_axis(int color, size_t& i);
-		void	make_fade_matrix();
-		void	colors_init();
 
 	//////////////////
 	// Fade helpers //
