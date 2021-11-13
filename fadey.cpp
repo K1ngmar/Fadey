@@ -62,6 +62,13 @@ void	fadey::make_fade_matrix()
 	init_fade_reverse_y_axis(5, i);
 	init_fade_reverse_z_axis(0, i);
 	init_fade_y_axis(0, i);
+
+	// for (size_t l = 0; l < FADE_SIZE; l++) {
+	// 	for (size_t u = 0; u < FADEY_MATRIX_SIZE; u++) {
+	// 		std::cout << "\e[38;5;" << _fade[l][u] << "m" << "pog" << " ";
+	// 	}
+	// 	std::cout << std::endl;
+	// }
 }
 
 void	fadey::colors_init()
@@ -94,15 +101,15 @@ size_t fadey::fadify_line(size_t pos, std::string& line, std::string& to_fade)
 		line_pos++;
 
 	size_t interval = (line_pos - pos) / FADEY_MATRIX_SIZE;
+	if (interval == 0)
+		interval = 1;
 	size_t color = 0;
-	line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
-
 	for (size_t i = pos; i < line_pos; i++) {
-		line += to_fade[i];
-		if (i != pos && i % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
+		if (i % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
 			color++;
 			line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
 		}
+		line += to_fade[i];
 	}
 
 	_idx++;

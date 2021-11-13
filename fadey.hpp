@@ -45,6 +45,7 @@
 		** - Auto reset (reset after every line)
 		** - Reset fade (resets on call)
 		** - Vertical / Horizontal fade
+		** - figure out more fade patterns
 		*/
 
 		fadey();
