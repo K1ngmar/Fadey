@@ -69,8 +69,8 @@ Fadey::fade_matrix const Fadey::_fade = {
 // Construction //
 //////////////////
 
-Fadey::Fadey(std::ostream& stream)
-	: _idx(rand() % FADE_SIZE), _stream(stream)
+Fadey::Fadey(bool auto_reset, std::ostream& stream)
+	: _idx(rand() % FADE_SIZE), _reset_idx(_idx), _stream(stream), _auto_reset(auto_reset)
 {
 }
 
@@ -86,31 +86,6 @@ std::ostream& operator << (Fadey& f, std::string str)
 //////////
 // Fade //
 //////////
-
-size_t Fadey::fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade)
-{
-	size_t line_pos;
-
-	line_pos = to_fade.find('\n', pos);
-	if (line_pos == std::string::npos)
-		line_pos = to_fade.length();
-	else
-		line_pos++;
-	
-	size_t color = 0;
-	for (size_t i = pos; i < line_pos; i++) {
-		if ((i - pos) % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
-			color++;
-			line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
-		}
-		line += to_fade[i];
-	}
-
-	_idx++;
-	if (_idx == FADE_SIZE)
-		_idx = 0;
-	return (line_pos);
-}
 
 static size_t get_interval(std::string& str)
 {
@@ -137,6 +112,31 @@ static size_t get_interval(std::string& str)
 	return (interval);
 }
 
+size_t Fadey::fadify_line(size_t pos, size_t interval, std::string& line, std::string& to_fade)
+{
+	size_t line_pos;
+
+	line_pos = to_fade.find('\n', pos);
+	if (line_pos == std::string::npos)
+		line_pos = to_fade.length();
+	else
+		line_pos++;
+	
+	size_t color = 0;
+	for (size_t i = pos; i < line_pos; i++) {
+		if ((i - pos) % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
+			color++;
+			line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
+		}
+		line += to_fade[i];
+	}
+
+	_idx++;
+	if (_idx == FADE_SIZE)
+		_idx = 0;
+	return (line_pos);
+}
+
 std::string Fadey::fadify(std::string to_fade)
 {
 	std::string faded;
@@ -147,5 +147,18 @@ std::string Fadey::fadify(std::string to_fade)
 		pos = this->fadify_line(pos, interval, faded, to_fade);
 	}
 	faded += COLOR_RESET;
+	if (_auto_reset == true)
+		_idx = _reset_idx;
 	return (faded);
+}
+
+/////////////
+// Setters //
+/////////////
+
+void	Fadey::set_auto_reset(bool auto_reset)
+{
+	_auto_reset = auto_reset;
+	if (auto_reset == true)
+		_idx = _reset_idx;
 }

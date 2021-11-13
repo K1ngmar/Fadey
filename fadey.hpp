@@ -49,8 +49,9 @@
 
 		static const  fade_matrix	_fade;
 		size_t						_idx;
+		size_t						_reset_idx;
 		std::ostream&				_stream;
-
+		bool						_auto_reset;
 
 	//////////////////
 	// Construction //
@@ -66,9 +67,10 @@
 		** - figure out more fade patterns
 		** - pass colors which to fade
 		** - set fade length
+		** - make it read and fade instantly
 		*/
 
-		Fadey(std::ostream& stream = std::cout);
+		Fadey(bool auto_reset = false, std::ostream& stream = std::cout);
 		virtual ~Fadey();
 
 		friend std::ostream& operator << (Fadey& f, std::string str);
@@ -86,6 +88,14 @@
 	public:
 
 		std::string fadify(std::string to_fade);
+
+	/////////////
+	// Setters //
+	/////////////
+	public:
+
+		/* resets fade */
+		void	set_auto_reset(bool auto_reset);
 
 	}; /* end of Fadey class */
 

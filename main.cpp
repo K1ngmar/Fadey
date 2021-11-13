@@ -30,6 +30,7 @@ int main(void)
 	fadey << buffer.str() << std::endl;
 	
 
+	fadey.set_auto_reset(true);
 	std::cout << fadey.fadify("Fadey") << std::endl;
 
 	// for(size_t i = 0; i < 69; i++)
