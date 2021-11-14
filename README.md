@@ -7,11 +7,11 @@
 #### ✨ Your best friend when it comes to making your output beautiful ✨
 
 # Table of contents:
-[About](#-about)
-[Requirements](#-requirements)
-[Installation](#-installation)
-[Features](#-features)
-[Performance](#-performance)
+* [About](#-about)
+* [Requirements](#-requirements)
+* [Installation](#%EF%B8%8F-installation)
+* [Features](#-features)
+* [Performance](#%EF%B8%8F-performance)
 
 # 📝 About:
 
