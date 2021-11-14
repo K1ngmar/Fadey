@@ -33,3 +33,4 @@
 
 *.dSYM
 .vscode
+main.cpp
