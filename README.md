@@ -12,6 +12,7 @@
 * [Installation](#%EF%B8%8F-installation)
 * [Features](#-features)
 * [Performance](#%EF%B8%8F-performance)
+* [Shoutout](#-shoutout)
 
 # 📝 About:
 
@@ -120,3 +121,8 @@ $ make -C Fadey/
 
 # ❗️ Performance:
 > Currently Fadey is very slow, I would **NOT** recommend using it if speed is important
+
+# 💖 Shoutout:
+Big love to the boys:
+* [@juvan-de](https://github.com/juvan-de)
+* [@Tishj](https://github.com/Tishj)
