@@ -25,12 +25,6 @@ namespace km
 // Global Fadey pog //
 //////////////////////
 
-static void randomize_seed()
-{
-	srand(time(NULL));
-	std::cout << "i get called" << std::endl;
-}
-
 Fadey fadey;
 
 ////////////////////////////////
@@ -83,7 +77,7 @@ Fadey fadey;
 		static bool do_randomize_seed = true;
 
 		if (do_randomize_seed == true) {
-			randomize_seed();
+			srand(time(NULL));
 			do_randomize_seed = false;
 			this->new_seed();
 		}
