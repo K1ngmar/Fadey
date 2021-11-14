@@ -6,6 +6,13 @@
 # 🌈 Fadey
 #### ✨ Your best friend when it comes to making your output beautiful ✨
 
+# Table of contents:
+[About](#-about)
+[Requirements](#-requirements)
+[Installation](#-installation)
+[Features](#-features)
+[Performance](#-performance)
+
 # 📝 About:
 
 Fadey will make your output into rainbows °˖✧◝(⁰▿⁰)◜✧˖°
