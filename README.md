@@ -50,7 +50,7 @@ $ make -C Fadey/
 
 * A global named `fadey` with `std::cout` as output stream
 
-* The fade will continue across calls
+* The fade will continue across calls if auto reset is set to `false`
   ```c++
   // example:
   for (size_t i = 0; i < 42; i++)
