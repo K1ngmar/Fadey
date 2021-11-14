@@ -51,14 +51,13 @@ $ make -C Fadey/
 * A global named `fadey` with `std::cout` as output stream
 
 * The fade will continue across calls
-  <img alt="Really cool fadey banner" src="./img/fade across calls.png" style="float:right;height:85px;" />
-  
   ```c++
   // example:
   for (size_t i = 0; i < 42; i++)
     km::fadey << "The fade continues across calls :O" << std::endl;
   ```
   > note that if you have a lot of difference in `line length` it will work best if you pass them as a *single* string
+  <img alt="Really cool fadey banner" src="./img/fade across calls.png" style="float:right;height:85px;" />
 
 * A constructor with auto reset turned `off` by default and an output stream set to `std::cout` by default
   ```c++
@@ -109,15 +108,15 @@ $ make -C Fadey/
     > note that if you turn auto reset `on` the fade pattern will instantly be reset to its starting state
   
 *  New seed
-  ```c++
-  // prototype:
-  void	new_seed();
+    ```c++
+    // prototype:
+    void	new_seed();
 
-  // used like:
-  km::fadey.new_seed();
-  ```
-  > note that this will not call `srand();`
+    // used like:
+    km::fadey.new_seed();
+    ```
+    > note that this will not call `srand();`
 
 
 # ❗️ Performance:
-> ### Currently Fadey is very slow, I would **NOT** recommend using it if speed is important
+> Currently Fadey is very slow, I would **NOT** recommend using it if speed is important
