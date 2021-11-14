@@ -50,7 +50,7 @@ namespace km
 	//////////////////////
 	private:
 
-		static const  fade_matrix	_fade;
+		static const fade_matrix	_fade;
 		size_t						_idx;
 		size_t						_reset_idx;
 		std::ostream&				_stream;

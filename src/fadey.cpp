@@ -21,10 +21,15 @@
 
 namespace km
 {
-
 //////////////////////
 // Global Fadey pog //
 //////////////////////
+
+static void randomize_seed()
+{
+	srand(time(NULL));
+	std::cout << "i get called" << std::endl;
+}
 
 Fadey fadey;
 
@@ -73,8 +78,15 @@ Fadey fadey;
 	//////////////////
 
 	Fadey::Fadey(bool auto_reset, std::ostream& stream)
-		: _idx(rand() % FADE_SIZE), _reset_idx(_idx), _stream(stream), _auto_reset(auto_reset)
+		: _stream(stream), _auto_reset(auto_reset)
 	{
+		static bool do_randomize_seed = true;
+
+		if (do_randomize_seed == true) {
+			randomize_seed();
+			do_randomize_seed = false;
+			this->new_seed();
+		}
 	}
 
 	Fadey::~Fadey()
