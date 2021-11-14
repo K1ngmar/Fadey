@@ -6,7 +6,7 @@
 # 🌈 Fadey
 #### ✨ Your best friend when it comes to making your output beautiful ✨
 
-# Table of contents:
+# 📦 Content:
 * [About](#-about)
 * [Requirements](#-requirements)
 * [Installation](#%EF%B8%8F-installation)
@@ -45,8 +45,8 @@ $ make -C Fadey/
 
 # ✅ Features:
 
-> ### Everything is in the namespace `km`  
-> ### Be aware that Fadey calls `srand(time(NULL));` before main gets called!
+> Everything is in the namespace `km`  
+> Be aware that Fadey calls `srand(time(NULL));` once before main gets called!
 
 * A global named `fadey` with `std::cout` as output stream
 
