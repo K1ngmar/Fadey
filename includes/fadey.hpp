@@ -30,6 +30,9 @@
 
 	# define COLOR_RESET "\033[0m"
 
+namespace km
+{
+
 /////////////////
 // Fadey class //
 /////////////////
@@ -66,6 +69,7 @@
 		** - pass colors which to fade
 		** - set fade length
 		** - make it read and fade instantly
+		** - set start color of fade pattern
 		*/
 
 		Fadey(bool auto_reset = false, std::ostream& stream = std::cout);
@@ -100,10 +104,12 @@
 
 	}; /* end of Fadey class */
 
-//////////////////////
-// Global Fadey pog //
-//////////////////////
+	//////////////////////
+	// Global Fadey pog //
+	//////////////////////
 
-	extern Fadey fadey;
+		extern Fadey fadey;
+
+} /* end of namespace km */
 
 #endif
