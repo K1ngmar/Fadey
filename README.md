@@ -48,9 +48,9 @@ $ make -C Fadey/
 > ### Everything is in the namespace `km`  
 > ### Be aware that Fadey calls `srand(time(NULL));` before main gets called!
 
-* ### A global named `fadey` with `std::cout` as output stream
+* A global named `fadey` with `std::cout` as output stream
 
-* ### The fade will continue across calls
+* The fade will continue across calls
   <img alt="Really cool fadey banner" src="./img/fade across calls.png" style="float:right;height:85px;" />
   
   ```c++
@@ -60,15 +60,15 @@ $ make -C Fadey/
   ```
   > note that if you have a lot of difference in `line length` it will work best if you pass them as a *single* string
 
-* ### A constructor with auto reset turned `off` by default and an output stream set to `std::cout` by default
+* A constructor with auto reset turned `off` by default and an output stream set to `std::cout` by default
   ```c++
   // prototype:
   Fadey(bool auto_reset = false, std::ostream& stream = std::cout);
   ```
 
-* ### Fade pattern starts at a random position by default
+* Fade pattern starts at a random position by default
 
-* ### Fadify function, that will turn your string into a rainbow
+* Fadify function, that will turn your string into a rainbow
   ```c++
   // prototype:
   std::string fadify(std::string to_fade);
@@ -77,7 +77,7 @@ $ make -C Fadey/
   std::string faded = km::fadey.fadify("I am about to get faded");
   ```
 
-* ### An output stream for strings that will fadify the string ánd write it to stream
+* An output stream for strings that will fadify the string ánd write it to stream
   ```c++
   // prototype:
   std::ostream& operator << (Fadey&, std::string);
@@ -86,9 +86,9 @@ $ make -C Fadey/
   km::fadey << "This is going to be faded :D" << std::endl;
   ```
 
-* ### An `auto reset` feature which will reset the fade patern to its original state every time 
+* An `auto reset` feature which will reset the fade patern to its original state every time 
 
-  * ### A function to turn auto reset `on` and/or `off`
+  * A function to turn auto reset `on` and/or `off`
     ```c++
     // prototype:
     void	set_auto_reset(bool auto_reset);
@@ -98,7 +98,7 @@ $ make -C Fadey/
     km::fadey.set_auto_reset(false); // turn auto reset off
     ````
 
-  * ### Toggle auto reset
+  * Toggle auto reset
     ```c++
     // prototype:
     void  toggle_auto_reset(void);
@@ -108,7 +108,7 @@ $ make -C Fadey/
     ```
     > note that if you turn auto reset `on` the fade pattern will instantly be reset to its starting state
   
-* ### New seed
+*  New seed
   ```c++
   // prototype:
   void	new_seed();
