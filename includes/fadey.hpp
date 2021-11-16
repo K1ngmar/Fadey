@@ -105,11 +105,34 @@ namespace km
 	///////////////////////////////
 	public:
 
+		// template < class integral, typename std::enable_if<std::is_integral<integral>::value>::type >
+		template < class integral >
+			Fadey& operator << (integral val)
+		{
+			*this << std::to_string(val);
+			return (*this);
+		}
+
+		friend Fadey& operator << (Fadey& f, void* val);
+		
 		friend Fadey& operator << (Fadey& f, const char* str);
+
+		friend Fadey& operator << (Fadey& f, std::string str);
 
 		friend Fadey& operator << (Fadey& f, std::string& str);
 
 		friend Fadey& operator << (Fadey& f, std::ostream& (*pf)(std::ostream&));
+
+
+	/*
+	** I dont know how to implement this
+	*/
+
+		// friend Fadey& operator << (Fadey& f, std::streambuf* sb );
+
+		// friend Fadey& operator << (Fadey& f, std::ios& (*pf)(std::ios&));
+
+		// friend Fadey& operator << (Fadey& f, std::ios_base& (*pf)(std::ios_base&));
 
 	}; /* end of Fadey class */
 

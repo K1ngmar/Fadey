@@ -181,11 +181,25 @@ Fadey fadey;
 // Stream operator overlaods //
 ///////////////////////////////
 
+	Fadey& operator << (Fadey& f, void* val)
+	{
+		char n[20];
+		sprintf(n, "%p", val);
+		f << n;
+		return (f);
+	}
+
 	Fadey& operator << (Fadey& f, const char* str)
 	{
 		std::string s(str);
 
 		f._stream << f.fadify(s);
+		return (f);
+	}
+
+	Fadey& operator << (Fadey& f, std::string str)
+	{
+		f._stream << f.fadify(str);
 		return (f);
 	}
 
@@ -200,5 +214,20 @@ Fadey fadey;
 		pf(f._stream);
 		return (f);
 	}
+
+	// Fadey& operator << (Fadey& f, std::streambuf* sb )
+	// {
+	// 	return (f);
+	// }
+
+	// Fadey& operator << (Fadey& f, std::ios& (*pf)(std::ios&))
+	// {
+	// 	return (f);
+	// }
+
+	// Fadey& operator << (Fadey& f, std::ios_base& (*pf)(std::ios_base&))
+	// {
+	// 	return (f);
+	// }
 
 } /* end of namespace */
