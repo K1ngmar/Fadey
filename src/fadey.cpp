@@ -86,10 +86,10 @@ Fadey fadey;
 	Fadey::~Fadey()
 	{}
 
-	std::ostream& operator << (Fadey& f, std::string str)
+	Fadey& operator << (Fadey& f, std::string str)
 	{
 		f._stream << f.fadify(str);
-		return (f._stream);
+		return (f);
 	}
 
 	//////////
