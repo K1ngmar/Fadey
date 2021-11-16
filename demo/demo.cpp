@@ -30,7 +30,8 @@ int main()
 	km::fadey << "Fadey supports a couple ways of fadifying your output :0" << std::endl;
 
 	/* still does not work ffff */
-	// km::fadey << "it can also print " << 42069.1f << std::endl; 
+	km::fadey << "it can also print " << 42069 << std::endl;
+	km::fadey << "it can also print " << (long)42069 << std::endl;
 	
 	return (0);
 }
