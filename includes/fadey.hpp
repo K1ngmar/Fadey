@@ -55,6 +55,7 @@ namespace km
 		size_t						_reset_idx;
 		std::ostream&				_stream;
 		bool						_auto_reset;
+		size_t						_fade_width;
 
 	//////////////////
 	// Construction //
@@ -105,8 +106,7 @@ namespace km
 	///////////////////////////////
 	public:
 
-		// template < class integral, typename std::enable_if<std::is_integral<integral>::value>::type >
-		template < class integral >
+		template < class integral, typename std::enable_if<std::is_integral<integral>::value>::type >
 			Fadey& operator << (integral val)
 		{
 			*this << std::to_string(val);
@@ -141,6 +141,8 @@ namespace km
 	//////////////////////
 
 		extern Fadey fadey;
+
+	
 
 } /* end of namespace km */
 

@@ -72,7 +72,7 @@ Fadey fadey;
 	//////////////////
 
 	Fadey::Fadey(bool auto_reset, std::ostream& stream)
-		: _stream(stream), _auto_reset(auto_reset)
+		: _stream(stream), _auto_reset(auto_reset), _fade_width((size_t)-1)
 	{
 		static bool do_randomize_seed = true;
 
@@ -145,7 +145,11 @@ Fadey fadey;
 		std::string faded;
 
 		size_t pos = 0;
-		size_t interval = get_interval(to_fade);
+		size_t interval;
+		if (_fade_width == (size_t)-1)
+			interval = get_interval(to_fade);
+		else
+			interval = _fade_width / FADEY_MATRIX_SIZE;
 		while (pos != to_fade.length()) {
 			pos = this->fadify_line(pos, interval, faded, to_fade);
 		}
@@ -191,9 +195,7 @@ Fadey fadey;
 
 	Fadey& operator << (Fadey& f, const char* str)
 	{
-		std::string s(str);
-
-		f._stream << f.fadify(s);
+		f << std::string(str);
 		return (f);
 	}
 
