@@ -106,7 +106,7 @@ namespace km
 	///////////////////////////////
 	public:
 
-		template < class integral, typename std::enable_if<std::is_integral<integral>::value>::type >
+		template < class integral >
 			Fadey& operator << (integral val)
 		{
 			*this << std::to_string(val);
