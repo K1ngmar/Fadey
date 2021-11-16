@@ -75,8 +75,6 @@ namespace km
 		Fadey(bool auto_reset = false, std::ostream& stream = std::cout);
 		virtual ~Fadey();
 
-		friend Fadey& operator << (Fadey& f, std::string str);
-
 	//////////////////
 	// Fade helpers //
 	//////////////////
@@ -101,6 +99,17 @@ namespace km
 		void	reset_fade();
 
 		void	new_seed();
+
+	///////////////////////////////
+	// Stream operator overlaods //
+	///////////////////////////////
+	public:
+
+		friend Fadey& operator << (Fadey& f, const char* str);
+
+		friend Fadey& operator << (Fadey& f, std::string& str);
+
+		friend Fadey& operator << (Fadey& f, std::ostream& (*pf)(std::ostream&));
 
 	}; /* end of Fadey class */
 

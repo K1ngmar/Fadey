@@ -86,12 +86,6 @@ Fadey fadey;
 	Fadey::~Fadey()
 	{}
 
-	Fadey& operator << (Fadey& f, std::string str)
-	{
-		f._stream << f.fadify(str);
-		return (f);
-	}
-
 	//////////
 	// Fade //
 	//////////
@@ -181,6 +175,30 @@ Fadey fadey;
 	{
 		_idx = rand() % FADE_SIZE;
 		_reset_idx = _idx;
+	}
+
+///////////////////////////////
+// Stream operator overlaods //
+///////////////////////////////
+
+	Fadey& operator << (Fadey& f, const char* str)
+	{
+		std::string s(str);
+
+		f._stream << f.fadify(s);
+		return (f);
+	}
+
+	Fadey& operator << (Fadey& f, std::string& str)
+	{
+		f._stream << f.fadify(str);
+		return (f);
+	}
+
+	Fadey& operator << (Fadey& f, std::ostream& (*pf)(std::ostream&))
+	{
+		pf(f._stream);
+		return (f);
 	}
 
 } /* end of namespace */
