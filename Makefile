@@ -51,6 +51,6 @@ clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME) $(DEMO_exec)
+	$(RM) $(NAME) $(DEMO_EXEC)
 
 re: fclean all
