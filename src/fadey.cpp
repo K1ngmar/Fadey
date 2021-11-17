@@ -128,8 +128,8 @@ Fadey fadey;
 		size_t color = 0;
 		for (size_t i = pos; i < line_pos; i++) {
 			if ((i - pos) % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
-				color++;
 				line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
+				color++;
 			}
 			line += to_fade[i];
 		}
@@ -143,9 +143,10 @@ Fadey fadey;
 	std::string Fadey::fadify(std::string to_fade)
 	{
 		std::string faded;
-
 		size_t pos = 0;
 		size_t interval;
+
+		std::cout << _idx;
 		if (_fade_width == (size_t)-1)
 			interval = get_interval(to_fade);
 		else
@@ -217,6 +218,12 @@ Fadey fadey;
 		return (f);
 	}
 
+	Fadey& operator << (Fadey& f, Fadey& (*pf)(Fadey&))
+	{
+		pf(f);
+		return (f);
+	}
+
 	// Fadey& operator << (Fadey& f, std::streambuf* sb )
 	// {
 	// 	return (f);
@@ -231,5 +238,42 @@ Fadey fadey;
 	// {
 	// 	return (f);
 	// }
+
+	Fadey&	red(Fadey& f)
+	{
+		f._idx = RED;
+		return (f);
+	}
+
+	Fadey&	green(Fadey& f)
+	{
+		f._idx = GREEN;
+		return (f);
+	}
+
+	Fadey&	blue(Fadey& f)
+	{
+		f._idx = BLUE;
+		return (f);
+	}
+
+	Fadey&	yellow(Fadey& f)
+	{
+		f._idx = YELLOW;
+		return (f);
+	}
+
+	Fadey&	orange(Fadey& f)
+	{
+		f._idx = ORANGE;
+		return (f);
+	}
+
+	Fadey&	purple(Fadey& f)
+	{
+		f._idx = PURPLE;
+		return (f);
+	}
+
 
 } /* end of namespace */

@@ -33,6 +33,15 @@
 namespace km
 {
 
+	enum colors {
+		RED = 3,
+		GREEN = 20,
+		BLUE = 17,
+		YELLOW = 25,
+		ORANGE = 6,
+		PURPLE = 0
+	};
+
 /////////////////
 // Fadey class //
 /////////////////
@@ -123,6 +132,8 @@ namespace km
 
 		friend Fadey& operator << (Fadey& f, std::ostream& (*pf)(std::ostream&));
 
+		friend Fadey& operator << (Fadey& f, Fadey& (*pf)(Fadey&));
+
 
 	/*
 	** I dont know how to implement this
@@ -134,7 +145,32 @@ namespace km
 
 		// friend Fadey& operator << (Fadey& f, std::ios_base& (*pf)(std::ios_base&));
 
+
+	/////////////////////////
+	// Stream manipulators //
+	/////////////////////////
+	public:
+
+		friend Fadey&	red(Fadey&);
+		friend Fadey&	green(Fadey&);
+		friend Fadey&	blue(Fadey&);
+		friend Fadey&	yellow(Fadey&);
+		friend Fadey&	orange(Fadey&);
+		friend Fadey&	purple(Fadey&);
+
 	}; /* end of Fadey class */
+
+	/////////////////////////
+	// Stream manipulators //
+	/////////////////////////
+
+		Fadey&	red(Fadey&);
+		Fadey&	green(Fadey&);
+		Fadey&	blue(Fadey&);
+		Fadey&	yellow(Fadey&);
+		Fadey&	orange(Fadey&);
+		Fadey&	purple(Fadey&);
+
 
 	//////////////////////
 	// Global Fadey pog //
