@@ -34,12 +34,12 @@ namespace km
 {
 
 	enum colors {
-		RED = 3,
-		GREEN = 20,
-		BLUE = 17,
-		YELLOW = 25,
-		ORANGE = 6,
-		PURPLE = 0
+		FADEY_RED = 3,
+		FADEY_GREEN = 20,
+		FADEY_BLUE = 17,
+		FADEY_YELLOW = 25,
+		FADEY_ORANGE = 6,
+		FADEY_PURPLE = 0
 	};
 
 /////////////////

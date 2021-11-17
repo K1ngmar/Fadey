@@ -241,37 +241,37 @@ Fadey fadey;
 
 	Fadey&	red(Fadey& f)
 	{
-		f._idx = RED;
+		f._idx = FADEY_RED;
 		return (f);
 	}
 
 	Fadey&	green(Fadey& f)
 	{
-		f._idx = GREEN;
+		f._idx = FADEY_GREEN;
 		return (f);
 	}
 
 	Fadey&	blue(Fadey& f)
 	{
-		f._idx = BLUE;
+		f._idx = FADEY_BLUE;
 		return (f);
 	}
 
 	Fadey&	yellow(Fadey& f)
 	{
-		f._idx = YELLOW;
+		f._idx = FADEY_YELLOW;
 		return (f);
 	}
 
 	Fadey&	orange(Fadey& f)
 	{
-		f._idx = ORANGE;
+		f._idx = FADEY_ORANGE;
 		return (f);
 	}
 
 	Fadey&	purple(Fadey& f)
 	{
-		f._idx = PURPLE;
+		f._idx = FADEY_PURPLE;
 		return (f);
 	}
 
