@@ -146,7 +146,6 @@ Fadey fadey;
 		size_t pos = 0;
 		size_t interval;
 
-		std::cout << _idx;
 		if (_fade_width == (size_t)-1)
 			interval = get_interval(to_fade);
 		else
