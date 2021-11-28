@@ -137,10 +137,10 @@ Fadey fadey;
 				line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
 				color++;
 			}
+			if (to_fade[i] == '\n')
+				line += COLOR_RESET;
 			line += to_fade[i];
 		}
-		if (to_fade[i] == '\n')
-			line += COLOR_RESET;
 		_idx++;
 		if (_idx == FADE_SIZE)
 			_idx = 0;
