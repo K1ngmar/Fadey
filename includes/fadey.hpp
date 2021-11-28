@@ -65,6 +65,8 @@ namespace km
 		std::ostream&				_stream;
 		bool						_auto_reset;
 		size_t						_fade_width;
+		int							_bg_clr;
+
 
 	//////////////////
 	// Construction //
@@ -134,7 +136,9 @@ namespace km
 
 		friend Fadey& operator << (Fadey& f, Fadey& (*pf)(Fadey&));
 
-
+	public:
+		void		backgroundColor(int rgb);
+		void		backgroundColorReset(void);
 	/*
 	** I dont know how to implement this
 	*/
