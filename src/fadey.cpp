@@ -72,7 +72,7 @@ Fadey fadey;
 	//////////////////
 
 	Fadey::Fadey(bool auto_reset, std::ostream& stream)
-		: _stream(stream), _auto_reset(auto_reset), _fade_width((size_t)-1)
+		: _stream(stream), _auto_reset(auto_reset), _fade_width((size_t)-1), _bg_clr(-1)
 	{
 		static bool do_randomize_seed = true;
 
@@ -128,12 +128,19 @@ Fadey fadey;
 		size_t color = 0;
 		for (size_t i = pos; i < line_pos; i++) {
 			if ((i - pos) % interval == 0 && color < FADEY_MATRIX_SIZE - 1) {
+				if (_bg_clr >= 0)
+				{
+					line += "\033[48;2;" + std::to_string(((_bg_clr >> 16) & 0xff)) + ';' + \
+							std::to_string(((_bg_clr >> 8) & 0xff)) + ";" \
+							+ std::to_string(((_bg_clr >> 0) & 0xff)) + "m";
+				}
 				line += "\033[38;5;" + std::to_string(_fade[_idx][color]) + "m";
 				color++;
 			}
+			if (to_fade[i] == '\n')
+				line += COLOR_RESET;
 			line += to_fade[i];
 		}
-
 		_idx++;
 		if (_idx == FADE_SIZE)
 			_idx = 0;
@@ -274,5 +281,14 @@ Fadey fadey;
 		return (f);
 	}
 
+	void	Fadey::backgroundColor(int rgb)
+	{
+		_bg_clr = rgb;
+	}
+
+	void	Fadey::backgroundColorReset(void)
+	{
+		_bg_clr = -1;
+	}
 
 } /* end of namespace */

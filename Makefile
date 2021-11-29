@@ -42,9 +42,9 @@ $(NAME): $(SRC)
 	$(CC) $(FLAGS) $(HEADER) -c $(SRC) -o $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-demo: $(NAME) $(DEMO_EXEC)
+demo: $(DEMO_EXEC)
 
-$(DEMO_EXEC): $(DEMO)
+$(DEMO_EXEC): $(NAME) $(DEMO)
 	$(CC) $(FLAGS) $(DEMO) $(HEADER) $(LINK) -o $(DEMO_EXEC)
 
 clean:
